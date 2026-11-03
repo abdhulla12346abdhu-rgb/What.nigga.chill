@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THREAD & CO. | Fashion Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #222;
+    background: #fff;
+}
+
+header {
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #222;
+    margin-left: 25px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #b47b52;
+}
+
+.cart {
+    font-weight: 700;
+}
+
+.hero {
+    min-height: 570px;
+    background:
+    linear-gradient(90deg, rgba(0,0,0,.6), transparent),
+    url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1800')
+    center/cover;
+    display: flex;
+    align-items: center;
+    padding: 8%;
+    color: white;
+}
+
+.hero-content {
+    max-width: 500px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #b47b52;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.btn:hover {
+    background: #8d5a39;
+}
+
+.section {
+    padding: 75px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.section-title p {
+    color: #777;
+    font-size: 14px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.category {
+    height: 380px;
+    position: relative;
+    overflow: hidden;
+}
+
+.category img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.category:hover img {
+    transform: scale(1.06);
+}
+
+.category h3 {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    color: white;
+    font-size: 25px;
+    text-shadow: 0 2px 8px #333;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.product img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    background: #eee;
+}
+
+.product h3 {
+    font-size: 15px;
+    margin: 12px 0 7px;
+}
+
+.price {
+    color: #b47b52;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.product button {
+    width: 100%;
+    padding: 12px;
+    background: #222;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.product button:hover {
+    background: #b47b52;
+}
+
+.banner {
+    background: #eee7df;
+    padding: 75px 20px;
+    text-align: center;
+}
+
+.banner h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.banner p {
+    margin-bottom: 25px;
+    color: #666;
+}
+
+footer {
+    background: #171717;
+    color: white;
+    padding: 45px 7%;
+    text-align: center;
+}
+
+footer p {
+    color: #aaa;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+@media(max-width: 900px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        padding: 18px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav a {
+        margin-left: 10px;
+        font-size: 11px;
+    }
+
+    .categories {
+        grid-template-columns: 1fr;
+    }
+
+    .category {
+        height: 300px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .product img {
+        height: 220px;
+    }
+
+    .section {
+        padding: 50px 5%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">move on niggas.</div>
+
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#collections">you ain,t having a shyt</a>
+        <a href="#shop">SHOP</a>
+        <a href="#contact">you,ll always my nigga</a>
+        <a href="#shop" class="cart">🛍 <span id="cart">0</span></a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>buy it nigga.</h1>
+        <p>Discover timeless fashion, modern essentials
+        and outfits that define your personality womp womp.</p>
+        <a href="#shop" class="btn">SHOP it Nigga</a>
+    </div>
+</section>
+
+<section class="section" id="collections for you NIGGA">
+    <div class="section-title">
+        <h2>OUR COLLECTIONS</h2>
+        <p>Explore fashion made for every moment.</p>
+    </div>
+
+    <div class="categories">
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700" alt="Women's fashion(are yo a women nigga)">
+            <h3>WOMEN(are you a women nigga)</h3>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=700" alt="Men's fashion(everyone know you are gay nigga)">
+            <h3>MEN(we know you are gay)</h3>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=700" alt="Fashion accessories(do you have that much money)">
+            <h3>ACCESSORIES(do you have that much money nigga)</h3>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="shop">
+    <div class="section-title">
+        <h2>BEST SELLER</h2>
+        <p>Our favourite picks of the season.</p>
+    </div>
+
+    <div class="products">
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600" alt="Women's dress">
+            <h3>Classic Summer Dress(you are a looker aren't you)</h3>
+            <div class="price">₹1,499</div>
+            <button onclick="addCart()">ADD TO CART</button>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="White t-shirt">
+            <h3>Premium Cotton T-Shirt(yeah looking everything)</h3>
+            <div class="price">₹799</div>
+            <button onclick="addCart()">ADD TO CART</button>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600" alt="Denim jeans">
+            <h3>Classic Denim Jeans(don't steal it my nigga)</h3>
+            <div class="price">₹1,299</div>
+            <button onclick="addCart()">ADD TO CART</button>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Sneakers">
+            <h3>Urban Street Sneakers(you can't afford it)</h3>
+            <div class="price">₹1,999(it's expensive for you nigga)</div>
+            <button onclick="addCart()">ADD TO CART</button>
+        </div>
+
+    </div>
+</section>
+
+<section class="banner">
+    <h2>NEW SEASON. NEW NIGGA.</h2>
+    <p>Refresh your wardrobe with our latest arrivals.WOMP WOMP</p>
+    <a href="#shop" class="btn">EXPLORE COLLECTION(ONLY IF YOU BUY)</a>
+</section>
+
+<footer id="contact">
+    <h2>THREAD & CO.</h2>
+    <p>Fashion is not just what you wear. It's who you are.</p>
+    <p>Instagram | Facebook | Contact Us(NOT YOU NIGGA)</p>
+    <p>© 2026 THREAD & CO. All Rights Reserved.</p>
+</footer>
+
+<script>
+let cartCount = 0;
+
+function addCart() {
+    cartCount++;
+    document.getElementById("cart").innerText = cartCount;
+    alert("Product added to cart!");
+}
+</script>
+
+</body>
+</html>
